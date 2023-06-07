@@ -1,0 +1,69 @@
+﻿@model apartment.Models.Entities.HoaDon
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2 style="text-align:center">Thêm Hóa Đơn</h2>
+    <div class="container admin-sua-thong-tin">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaHoaDon)
+
+        <div class="form-group">
+            <label class="col-md-12 text-center">Mã Người Thuê:</label>
+            <div class="col-md-12">
+                @Html.DropDownList("MaNguoiThue", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaNguoiThue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-12 text-center">Mã Phòng:</label>
+            <div class="col-md-12">
+                @Html.DropDownList("MaPhong", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-12 text-center">Mã CTHD:</label>
+            <div class="col-md-12">
+                @Html.DropDownList("MaCTHD", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaCTHD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-12 text-center">NgayTaoHD:</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.NgayTaoHD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayTaoHD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-12 text-center">TongChiPhi:</label>
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.TongChiPhi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TongChiPhi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12 text-center">
+                <input type="submit" value="Save" class="btn btn-ok" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

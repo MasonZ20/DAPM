@@ -1,0 +1,60 @@
+﻿@model apartment.Models.Entities.TaiSan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TaiSan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Phong.TenPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phong.TenPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTaiSan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTaiSan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienDenBu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienDenBu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @*<a href="#" data-toggle="modal" data-target="#myModal" onclick="myFunction('/TaiSans/Delete/@item.MaTaiSan')">Xóa</a>*@
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+@* @Html.Partial("~/Views/SharedAdmin/_HopThoaiXacNhan.cshtml") *@

@@ -1,0 +1,51 @@
+﻿@model apartment.Models.Entities.TaiSan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TaiSan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Phong.TenPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phong.TenPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTaiSan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTaiSan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienDenBu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienDenBu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTaiSan }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

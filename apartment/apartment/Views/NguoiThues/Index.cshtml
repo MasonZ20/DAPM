@@ -1,0 +1,76 @@
+﻿@model IEnumerable<apartment.Models.Entities.NguoiThue>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+
+<script>
+    var element = document.getElementById("collapse5");
+    element.classList.add("in");
+</script>
+<h2 style="text-align:center">Danh Sách Người Thuê</h2>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.MaDatPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatPhong.TenTaiKhoan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayDat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoDienThoai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CMND)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaDatPhong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatPhong.TenTaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CMND)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaNguoiThue }) |
+               @* @Html.ActionLink("Details", "Details", new { id = item.MaNguoiThue }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaNguoiThue })
+            </td>
+        </tr>
+    }
+
+</table>

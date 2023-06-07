@@ -1,0 +1,59 @@
+﻿@model IEnumerable<apartment.Models.Entities.TaiSan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+<h2>Danh Sách Tài Sản Hư Hại</h2>
+<script>
+    var element = document.getElementById("collapse6");
+    element.classList.add("in");
+</script>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Phong.TenPhong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenTaiSan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TienDenBu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phong.TenPhong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTaiSan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienDenBu)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaTaiSan }) |
+                
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaTaiSan })
+                
+               
+
+            </td>
+        </tr>
+    }
+
+</table>

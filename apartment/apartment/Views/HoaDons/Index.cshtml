@@ -1,0 +1,64 @@
+﻿@model IEnumerable<apartment.Models.Entities.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+<h2>Danh Sách Hóa Đơn</h2>
+<script>
+    var element = document.getElementById("collapse7");
+    element.classList.add("in");
+</script>
+<p>
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>
+                    Mã hóa đơn
+                </th>
+                <th>
+                    Người thuê
+                </th>
+                <th>
+                    Phòng
+                </th>
+                <th>
+                    Ngày tạo hóa đơn
+                </th>
+                <th>
+                    Tổng chi phí
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHoaDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NguoiThue.HoTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phong.TenPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayTaoHD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongChiPhi)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaHoaDon }, new { @class = "btn btn-warning" })
+                    @*   @Html.ActionLink("Details", "Details", new { id = item.MaHoaDon }) | *@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaHoaDon }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

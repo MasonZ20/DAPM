@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<apartment.Models.Entities.Phong>
+@{
+    ViewBag.Title = "DSPhong";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+@using apartment.Models.Entities
+@using PagedList.Mvc;
+
+<script>
+    var element = document.getElementById("collapse3");
+    element.classList.add("in");
+</script>
+
+<h2 style="text-align:center">Danh Sách Phòng</h2>
+<div class="bang-danh-sach">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                
+                <th>Mã Phòng</th>
+                <th>Tên Phòng</th>
+                <th>Mã Loại</th>
+                <th>Diện Tích</th>
+                <th>Giá Thuê</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                /*int stt = ViewBag.STT;*/
+                foreach (Phong p in Model)
+                {
+                    
+                    <tr>
+                        
+                        <td>@p.MaPhong</td>
+                        <td>@p.TenPhong</td>
+                        <td>@p.MaLoai</td>
+                        <td>@p.DienTich</td>
+                        <td>@p.GiaThue</td>
+                        <td><a href="/Admin/SuaPhong/@p.MaPhong">Sửa</a>&nbsp;|&nbsp;<a href="#" data-toggle="modal" data-target="#myModal" onclick="myFunction('/Admin/XoaPhong/@p.MaPhong')">Xóa</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Thêm mã phân trang -->
+<br />
+
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("DSPhong",
+        new { page }))
+
+    <!-- Kết thúc -->
+    @Html.Partial("~/Views/SharedAdmin/_HopThoaiXacNhan.cshtml")
+

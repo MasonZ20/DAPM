@@ -1,0 +1,99 @@
+﻿@model apartment.Models.Entities.ChitietHoaDon
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/SharedAdmin/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChitietHoaDon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DichVu.TenDichVu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DichVu.TenDichVu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiThue.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiThue.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaiSan.TenTaiSan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaiSan.TenTaiSan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaThue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaThue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienTamUng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienTamUng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongChiPhi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongChiPhi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayThue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayThue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoNgayO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoNgayO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTienDaTra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienDaTra)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaCTHD }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
